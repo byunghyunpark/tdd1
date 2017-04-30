@@ -50,3 +50,13 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 2017-04-30 18:41:53.218 plugin-container[77636:2483431] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9403, name = 'com.apple.CFPasteboardClient'
 See /usr/include/servers/bootstrap_defs.h for the error codes.
 1493545313341	Marionette	INFO	New connections will no longer be accepted
+1493562043435	geckodriver	INFO	Listening on 127.0.0.1:59645
+1493562044455	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1493562046632	Marionette	INFO	Listening on port 59654
+1493562046734	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-04-30 23:20:47.192 plugin-container[88461:2561240] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x923b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-04-30 23:20:47.193 plugin-container[88461:2561240] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1493562047280	Marionette	INFO	New connections will no longer be accepted
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
