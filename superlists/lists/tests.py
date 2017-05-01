@@ -20,6 +20,3 @@ class HomePageTest(TestCase):
         # 상수 테스트를 하지 않고 템플릿을 이용해서 렌더링하는 것을 테스트하도록 수정
         expected_html = render_to_string('home.html')
         self.assertEqual(response.content.decode(), expected_html)
-
-
-
