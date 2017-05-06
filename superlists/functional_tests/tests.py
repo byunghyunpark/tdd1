@@ -1,9 +1,10 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(3)
@@ -17,7 +18,7 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn(row_text, [row.text for row in rows])
 
     def test_can_start_a_list_and_retrieve_it_later(self):
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # 웹 페이지 타이틀과 헤더가 'To-Do'를 효시하고 있다.
         self.assertIn('To-Do', self.browser.title)
@@ -38,7 +39,7 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         import time
         time.sleep(5)
-        self.check_for_row_in_list_table('45: 공작깃털 사기')
+        self.check_for_row_in_list_table('1: 공작깃털 사기')
 
         # 추가 아이템을 입력할 수 있는 여분의 텍스트 상자가 존재한다
         # 다시 '공잣깃털을 이용해서 그물 만들기' 라고 입력한다
@@ -49,13 +50,10 @@ class NewVisitorTest(unittest.TestCase):
 
         # 페이지는 다시 객신되고 두 개 아이템이 목록에 보인다
         time.sleep(5)
-        self.check_for_row_in_list_table('45: 공작깃털 사기')
-        self.check_for_row_in_list_table('47: 공작깃털을 이용해서 그물 만들기')
+        self.check_for_row_in_list_table('1: 공작깃털 사기')
+        self.check_for_row_in_list_table('2: 공작깃털을 이용해서 그물 만들기')
 
         # 에디스는 사이트가 입력한 목록을 저장하고 있느지 궁금하다
         # 사이트는 그녀를 위한 특정 URL을 생성해준다
         # 이때 URL에 대한 설명도 함께 제공된다
         self.fail('Finish the test!')
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
