@@ -41,7 +41,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
         edith_list_url = self.browser.current_url
-        print(edith_list_url)
+        print(1, edith_list_url)
         self.assertRegex(edith_list_url, '/lists/the-only-list-in-the-world/')
         self.check_for_row_in_list_table('1: 공작깃털 사기')
 
@@ -53,6 +53,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         # 페이지는 다시 갱신되고 두 개 아이템이 목록에 보인다
+        print(2, self.browser.current_url)
         time.sleep(5)
         self.check_for_row_in_list_table('1: 공작깃털 사기')
         self.check_for_row_in_list_table('2: 공작깃털을 이용해서 그물 만들기')
