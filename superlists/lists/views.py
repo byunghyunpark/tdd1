@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 
-from lists.models import Item
+from lists.models import Item, List
 
 
 @csrf_exempt
@@ -17,5 +17,6 @@ def view_list(request):
 
 @csrf_exempt
 def new_list(request):
-    Item.objects.create(text=request.POST['item_text'])
-    return redirect('/lists/the-only-list-in-the-world/')
+    list_ = List.objects.create()
+    Item.objects.create(text=request.POST['item_text'], list=list_)
+    return redirect('/lists/the-only-list-in-the-world/', list=list_)
