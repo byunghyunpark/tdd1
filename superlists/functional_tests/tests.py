@@ -42,7 +42,7 @@ class NewVisitorTest(LiveServerTestCase):
         time.sleep(1)
         edith_list_url = self.browser.current_url
         print(1, edith_list_url)
-        self.assertRegex(edith_list_url, '/lists/the-only-list-in-the-world/')
+        self.assertRegex(edith_list_url, '/lists/\d')
         self.check_for_row_in_list_table('1: 공작깃털 사기')
 
         # 추가 아이템을 입력할 수 있는 여분의 텍스트 상자가 존재한다
@@ -54,9 +54,9 @@ class NewVisitorTest(LiveServerTestCase):
 
         # 페이지는 다시 갱신되고 두 개 아이템이 목록에 보인다
         print(2, self.browser.current_url)
-        time.sleep(5)
-        self.check_for_row_in_list_table('1: 공작깃털 사기')
+        time.sleep(1)
         self.check_for_row_in_list_table('2: 공작깃털을 이용해서 그물 만들기')
+        self.check_for_row_in_list_table('1: 공작깃털 사기')
 
         # 새로운 사용자인 프란시스가 사이트에 접속한다
 
@@ -84,7 +84,7 @@ class NewVisitorTest(LiveServerTestCase):
         time.sleep(1)
         francis_list_url = self.browser.current_url
         # print(francis_list_url)
-        self.assertRegex(francis_list_url, '/lists/.+')
+        self.assertRegex(francis_list_url, '/lists/\d')
         self.assertNotEqual(francis_list_url, edith_list_url)
 
         # 에디스가 입력한 흔적이 없다는 것을 다시 확인한다
