@@ -12,20 +12,20 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 's!1_(s9(-2u14&c1@=6ll#892^$h9wmqi8rq3vhvd#t$53h2a0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# File path
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # /luxlab-api/django_app
+ROOT_DIR = os.path.dirname(BASE_DIR)
 
-ALLOWED_HOSTS = []
+# Debug option
+debug = os.environ.get('DEBUG', '')
+DEBUG = debug == 'True'
+print('DEBUG =', DEBUG)
+
+server = os.environ.get('SERVER', '')
+TEST = server == 'Test'
+print('SERVER =', TEST)
 
 
 # Application definition
