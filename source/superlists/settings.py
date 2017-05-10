@@ -28,6 +28,10 @@ TEST = server == 'Test'
 print('SERVER =', TEST)
 
 
+ALLOWED_HOSTS = [
+    '*',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
