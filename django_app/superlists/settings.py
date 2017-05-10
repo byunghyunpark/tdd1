@@ -29,6 +29,7 @@ print('SERVER =', TEST)
 
 
 ALLOWED_HOSTS = [
+    '.amazonaws.com',
     '*',
 ]
 
