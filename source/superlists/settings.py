@@ -15,8 +15,8 @@ import os
 SECRET_KEY = 's!1_(s9(-2u14&c1@=6ll#892^$h9wmqi8rq3vhvd#t$53h2a0'
 
 # File path
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # /luxlab-api/django_app
-ROOT_DIR = os.path.dirname(BASE_DIR)
+BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 
 # Debug option
 debug = os.environ.get('DEBUG', '')
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'superlists.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '../database/db.sqlite3'),
     }
 }
 
@@ -119,4 +119,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
